@@ -34,6 +34,8 @@ app.get("/", (req, res) => {
 //require("./app/routes/tutorial.routes")(app);
 require("./app/routes/usuario.routes")(app);
 require("./app/routes/foto.routes")(app);
+require("./app/routes/auth.routes")(app);
+
 
 
 // set port, listen for requests
