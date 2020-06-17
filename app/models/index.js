@@ -21,10 +21,6 @@ db.sequelize = sequelize;
 
 //db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 db.usuarios = require("./usuario.model.js")(sequelize, Sequelize);
-//db.alergias = require("./alergias.model.js")(sequelize, Sequelize);
-//db.cirurgias = require("./cirurgias.model.js")(sequelize, Sequelize);
-//db.medicamentos = require("./medicamentos.model.js")(sequelize, Sequelize);
-//db.doencas = require("./doencas.model")(sequelize, Sequelize);
-//db.infosBasicas = require("./infoBasicas.model")(sequelize, Sequelize);
+db.fotos = require("./fotos.model.js")(sequelize, Sequelize);
 
 module.exports = db;

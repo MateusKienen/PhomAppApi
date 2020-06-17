@@ -33,12 +33,8 @@ app.get("/", (req, res) => {
 //registro das rotas de uma controller (tem que fazer pra todas sepa)
 //require("./app/routes/tutorial.routes")(app);
 require("./app/routes/usuario.routes")(app);
-//require("./app/routes/alergias.routes")(app);
-//require("./app/routes/medicamentos.routes")(app);
-// require("./app/routes/infoBasicas.routes")(app);
-// require("./app/routes/cirurgias.routes")(app);
-// require("./app/routes/doencas.routes")(app);
-// require("./app/routes/auth.routes")(app);
+require("./app/routes/foto.routes")(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
