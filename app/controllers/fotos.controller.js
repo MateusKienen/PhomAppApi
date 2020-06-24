@@ -23,7 +23,7 @@ exports.create = (req, res) => {
   };
 
   // Insert foto in db
-  Usuario.create(foto)
+  Foto.create(foto)
     .then((data) => {
       res.send({
         message: "1",
@@ -42,30 +42,13 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   const idUser = req.query.idu;
   
-  Usuario.findAll({ where: { usuario_id: idUser } })
+  Foto.findAll({ where: { usuario_id: idUser } })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
         message: err.message || "Ocorreu um erro na busca da foto",
-      });
-    });
-};
-
-// Find a single Tutorial with an id
-//MÉTODO NÃO FINALIZADO AINDA PARA TESTES
-exports.findOne = (req, res) => {
-  const idUser = req.query.idu;
-  const idFoto = req.query.idf;
-
-  Usuario.findByPk(id)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: "Erro na busca do usuário " + id,
       });
     });
 };
