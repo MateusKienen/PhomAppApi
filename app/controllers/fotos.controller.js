@@ -1,6 +1,7 @@
 const db = require("../models");
 const Foto = db.Foto;
 const Op = db.Sequelize.Op;
+var fs = require('fs');
 
 //create
 exports.create = (req, res) => {
@@ -23,7 +24,8 @@ exports.create = (req, res) => {
   };
 
   // Insert foto in db
-  Foto.create(foto)
+  try{
+    Foto.create(foto)
     .then((data) => {
       res.send(data);
     })
@@ -33,8 +35,11 @@ exports.create = (req, res) => {
         status: "Erro ao inserir foto " + err,
       });
     });
+  } catch(e) {
+    fs.appendFile('logger.txt', e);
+  }
 };
-
+  
 // Get all fotos
 exports.findAll = (req, res) => {
   const idUser = req.query.idu;
