@@ -36,7 +36,7 @@ exports.create = (req, res) => {
       });
     });
   } catch(e) {
-    fs.appendFile('logger.txt', e);
+    fs.appendFile('C:\\Projetos_git\\PhomAppAPI\\logger.txt', e);
   }
 };
   
