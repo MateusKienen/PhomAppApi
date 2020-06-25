@@ -25,13 +25,10 @@ exports.create = (req, res) => {
   // Insert foto in db
   Foto.create(foto)
     .then((data) => {
-      res.send({
-        message: "1",
-        status: "Success",
-      });
+      res.send(data);
     })
     .catch((err) => {
-      res.status(500).send({
+      res.status(200).send({
         message: "-1",
         status: "Erro ao inserir foto " + err,
       });
