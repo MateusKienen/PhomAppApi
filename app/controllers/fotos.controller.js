@@ -1,7 +1,7 @@
 const db = require("../models");
 const Foto = db.Foto;
 const Op = db.Sequelize.Op;
-var fs = require('fs');
+var fs = require("fs");
 
 //create
 exports.create = (req, res) => {
@@ -20,12 +20,12 @@ exports.create = (req, res) => {
     latitude: req.body.latitude,
     longitude: req.body.longitude,
     arq_foto: req.body.arq_foto,
-    usuario_id: req.body.usuario_id
+    usuario_id: req.body.usuario_id,
   };
 
   // Insert foto in db
-  try{
-    Foto.create(foto)
+
+  Foto.create(foto)
     .then((data) => {
       res.send(data);
     })
@@ -35,15 +35,12 @@ exports.create = (req, res) => {
         status: "Erro ao inserir foto " + err,
       });
     });
-  } catch(e) {
-    fs.appendFile('C:\\Projetos_git\\PhomAppAPI\\logger.txt', e);
-  }
 };
-  
+
 // Get all fotos
 exports.findAll = (req, res) => {
   const idUser = req.query.idu;
-  
+
   Foto.findAll({ where: { usuario_id: idUser } })
     .then((data) => {
       res.send(data);
