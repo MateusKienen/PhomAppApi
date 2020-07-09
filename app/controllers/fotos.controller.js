@@ -1,17 +1,16 @@
 const db = require("../models");
 const Foto = db.Foto;
 const Op = db.Sequelize.Op;
-var fs = require("fs");
 
 //create
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.arq_foto) {
-    res.status(400).send({
-      message: "O campo não pode ser vazio",
-    });
-    return;
-  }
+  // if (!req.body.arq_foto) {
+  //   res.status(400).send({
+  //     message: "O campo não pode ser vazio",
+  //   });
+  //   return;
+  // }
 
   // Create object
   const foto = {
@@ -37,17 +36,42 @@ exports.create = (req, res) => {
     });
 };
 
-// Get all fotos
-exports.findAll = (req, res) => {
-  const idUser = req.query.idu;
+// exports.findAllByUserId = (req, res) => {
+//   const idUser = req.params.idu;
 
-  Foto.findAll({ where: { usuario_id: idUser } })
+//   Foto.findAll({
+//     where: {
+//       usuario_id: {
+//         [Op.eq]: idUser,
+//       },
+//     },
+//   })
+//     .then((data) => {
+//       res.send(data);
+//     })
+//     .catch((err) => {
+//       res.status(500).send({
+//         message: err.message || "Ocorreu um erro na busca da foto",
+//       });
+//     });
+// };
+
+exports.findAllByUserId = (req, res) => {
+  const zid_usuario = req.params.idu;
+
+  Foto.findAll({
+    where: {
+      usuario_id: {
+        [Op.eq]: zid_usuario,
+      },
+    },
+  })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Ocorreu um erro na busca da foto",
+        message: err.message || "Ocorreu um erro na busca",
       });
     });
 };

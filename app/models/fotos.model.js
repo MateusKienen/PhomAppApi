@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const Alergia = sequelize.define("fotos", {
+  const Foto = sequelize.define("fotos", {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -18,17 +18,16 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
     arq_foto: {
-      type: Sequelize.BLOB 
+      type: Sequelize.STRING 
     },
     usuario_id: {
       type: Sequelize.INTEGER,
       references: {
-        model: 'usuarios',
+        model: "usuarios",
         key: "id",
-        autoIncrement: true
       },
     },
   });
 
-  return Alergia;
+  return Foto;
 };

@@ -5,9 +5,7 @@ module.exports = app => {
   
     router.post("/", foto.create);
   
-    router.get("/:idu", foto.findAll);
-    
-   // router.get("/:idu&:idf", foto.findOne);
-  
+    router.get("/:idu", foto.findAllByUserId);
+
     app.use('/api/foto', router);
   };
