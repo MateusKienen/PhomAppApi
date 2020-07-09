@@ -18,7 +18,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
     arq_foto: {
-      type: Sequelize.STRING 
+      type: Sequelize.BLOB('long') 
     },
     usuario_id: {
       type: Sequelize.INTEGER,

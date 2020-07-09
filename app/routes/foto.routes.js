@@ -7,5 +7,5 @@ module.exports = app => {
   
     router.get("/:idu", foto.findAllByUserId);
 
-    app.use('/api/foto', router);
+    app.use('/api/fotos', router);
   };

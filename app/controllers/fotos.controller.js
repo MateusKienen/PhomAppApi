@@ -1,16 +1,9 @@
 const db = require("../models");
-const Foto = db.Foto;
+const Foto = db.fotos;
 const Op = db.Sequelize.Op;
 
 //create
 exports.create = (req, res) => {
-  // Validate request
-  // if (!req.body.arq_foto) {
-  //   res.status(400).send({
-  //     message: "O campo não pode ser vazio",
-  //   });
-  //   return;
-  // }
 
   // Create object
   const foto = {
